@@ -1,14 +1,22 @@
-// random
-const randomNum = Math.floor(Math.random() * 6) + 1
-console.log(randomNum)
+// const diceBtn = document.querySelector('button');
+let total = 0;
+function pigdice(){
+  const diceNum = document.querySelector('#diceNum');
+  const totalNum = document.querySelector('#total');
 
-//if
-let total;
-if(randomNum !== 1){
-  total += randomNum;
-  console.log('total',total)
-}else{
-  total = 0;
-  console.log('total',total)
-  alert('다음 턴')
+  // random
+  const randomNum = Math.floor(Math.random() * 6) + 1;
+  diceNum.innerHTML = randomNum;
+
+  //if
+  if(randomNum !== 1){
+    total += randomNum;
+    totalNum.innerHTML = total
+  }else{
+    total = 0;
+    totalNum.innerHTML = 0
+    alert('다음 턴');
+  }
 }
+
+
