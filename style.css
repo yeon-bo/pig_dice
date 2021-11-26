@@ -31,6 +31,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+a {
+  color: #000;
+  text-decoration: none;
+}
 ol, ul {
 	list-style: none;
 }
@@ -56,6 +60,21 @@ html,body{
   } 
 }
 
+
+/* INTRO PAGE */
+.intro-board{
+  position: relative;
+  width: 1280em;
+  height: 600em;
+  margin: 0 auto;
+  border: 2px solid palevioletred;
+  border-radius: 20em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* MAIN PAGE */
 .l-board{
   position: relative;
   width: 1280em;
