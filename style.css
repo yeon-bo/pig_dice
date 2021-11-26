@@ -61,6 +61,9 @@ html,body{
 }
 
 
+
+
+
 /* INTRO PAGE */
 .intro-board{
   position: relative;
@@ -72,7 +75,7 @@ html,body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: #000;
+  background-image: url('./background_pattern.jpg');
 }
 
 .box1 {
@@ -84,14 +87,17 @@ html,body{
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 100rem;
-  background: rgb(255, 255, 255, .9);
-  border: 1px solid #fff;
+  background: rgb(255, 255, 255, .8);
+  border: 2px solid #fff;
 }
 .box1 h1 {
-  font-size: 30em;
-  font-weight: 800;
-  margin: 2em;
+  font-size: 40em;
+  font-weight: 1000;
+  margin: 1.5em;
   text-align: center;
+}
+.box1 h1 > span {
+  color: palevioletred;
 }
 
 .box1 .box2 {
@@ -138,12 +144,12 @@ html,body{
   font-size: 17em;
   margin-top: 1em;
 }
-.box1 .box2 .player-name .btn_clear {
+.box1 .box2 .player-name .btn_reset {
   display: inline-block;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid palevioletred;
+  border: 1px solid #888;
   border-radius: 5px;
   padding: .5em;
   margin-top: 2em;
@@ -157,17 +163,25 @@ html,body{
   bottom:10%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 15rem 40rem;
-  font-size: 25em;
+  padding: 10rem 30rem;
   background: #fff;
   border: 2px solid palevioletred;
-  border-radius: 5rem;
+  border-radius: 30rem;
+}
+.box1 .btn_start a {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: palevioletred;
 }
 .box1 .btn_start:hover{
-  background: palevioletred;
-  border: 2px solid rgb(248, 66, 127);
+  background: rgb(223, 50, 107);
+}
+.box1 .btn_start:hover a {
   color: #fff;
 }
+
+
+
 
 
 /* MAIN PAGE */
