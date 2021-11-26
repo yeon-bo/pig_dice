@@ -88,7 +88,7 @@ html,body{
   transform: translateX(-50%) translateY(-50%);
   border-radius: 100rem;
   background: rgb(255, 255, 255, .8);
-  border: 2px solid #fff;
+  border: 1px solid #fff;
 }
 .box1 h1 {
   font-size: 40em;
