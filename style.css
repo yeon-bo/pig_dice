@@ -31,6 +31,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+a {
+  color: #000;
+  text-decoration: none;
+}
 ol, ul {
 	list-style: none;
 }
@@ -56,6 +60,131 @@ html,body{
   } 
 }
 
+
+
+
+
+/* INTRO PAGE */
+.intro-board{
+  position: relative;
+  width: 1280em;
+  height: 600em;
+  margin: 0 auto;
+  border: 2px solid palevioletred;
+  border-radius: 20em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-image: url('./background_pattern.jpg');
+}
+
+.box1 {
+  position: absolute;
+  width: 500em;
+  height: 500em;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 100rem;
+  background: rgb(255, 255, 255, .8);
+  border: 1px solid #fff;
+}
+.box1 h1 {
+  font-size: 40em;
+  font-weight: 1000;
+  margin: 1.5em;
+  text-align: center;
+}
+.box1 h1 > span {
+  color: palevioletred;
+}
+
+.box1 .box2 {
+  position: absolute;
+  width: 300em;
+  height: 200em;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.box1 .box2 .name-write {
+  position: relative;
+  height: 60em;
+}
+.box1 .box2 .name-write .input {
+  position: absolute;
+  left: 7%;
+  padding: 1em;
+  border: 2px solid palevioletred;
+}
+.box1 .box2 .name-write .player-add {
+  position: absolute;
+  right: 7%;
+  padding: 1em 1.2em;
+  border: 2px solid palevioletred;
+  border-radius: 20px;
+  background: #fff;
+  color: palevioletred;
+}
+
+.box1 .box2 .player-name {
+  display: inline-block;
+  position: relative;
+  height: 150em;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: auto;
+}
+.box1 .box2 .player-name ul {
+  text-align: center;
+}
+.box1 .box2 .player-name ul li {
+  font-size: 17em;
+  margin-top: 1em;
+}
+.box1 .box2 .player-name .btn_reset {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #888;
+  border-radius: 5px;
+  padding: .5em;
+  margin-top: 2em;
+  font-size: 8em;
+  background: #fff;
+}
+
+.box1 .btn_start{
+  display: inline-block;
+  position: absolute;
+  bottom:10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10rem 30rem;
+  background: #fff;
+  border: 2px solid palevioletred;
+  border-radius: 30rem;
+}
+.box1 .btn_start a {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: palevioletred;
+}
+.box1 .btn_start:hover{
+  background: rgb(223, 50, 107);
+}
+.box1 .btn_start:hover a {
+  color: #fff;
+}
+
+
+
+
+
+/* MAIN PAGE */
 .l-board{
   position: relative;
   width: 1280em;
