@@ -16,5 +16,3 @@ function pigdice(){
     alert('다음 턴');
   }
 }
-
-

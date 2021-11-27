@@ -31,6 +31,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+a {
+  color: #000;
+  text-decoration: none;
+}
 ol, ul {
 	list-style: none;
 }
@@ -55,6 +59,143 @@ html,body{
     font-size: 1px;
   } 
 }
+
+
+
+
+
+/* INTRO PAGE */
+.intro-board{
+  position: relative;
+  width: 1280em;
+  height: 600em;
+  margin: 0 auto;
+  border: 2px solid palevioletred;
+  border-radius: 20em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-image: url('./background_pattern.jpg');
+}
+
+.box1 {
+  position: absolute;
+  width: 500em;
+  height: 500em;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 100rem;
+  background: rgb(255, 255, 255, .8);
+  border: 1px solid #fff;
+}
+.box1 h1 {
+  font-size: 45em;
+  font-weight: bold;
+  margin: 1.2em;
+  text-align: center;
+}
+.box1 h1 > span {
+  color: palevioletred;
+}
+
+.box1 .box2 {
+  position: absolute;
+  width: 300em;
+  height: 200em;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.box1 .box2 .name-write {
+  position: relative;
+  height: 50em;
+}
+.box1 .box2 .name-write .input {
+  position: absolute;
+  left: 7%;
+  padding: 0 13rem;
+  font-size: 15rem;
+  width: 55%;
+  height: 100%;
+  border: 1px solid palevioletred;
+}
+.box1 .box2 .name-write .player-add {
+  position: absolute;
+  right: 7%;
+  padding: 0 5rem;
+  font-size: 30rem;
+  width: 17%;
+  height: 100%;
+  border: 1px solid palevioletred;
+  border-radius: 25px;
+  background: #fff;
+  color: palevioletred;
+}
+.box1 .box2 .name-write .player-add:hover {
+  color: #fff;
+  background: palevioletred;
+}
+
+.box1 .box2 .player-name {
+  display: inline-block;
+  position: relative;
+  top: 20em;
+  height: 150em;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: auto;
+}
+.box1 .box2 .player-name ul {
+  text-align: center;
+}
+.box1 .box2 .player-name ul li {
+  font-size: 17rem;
+  margin-top: 1em;
+}
+.box1 .box2 .player-name .btn_reset {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #888;
+  border-radius: 5px;
+  padding: .5em;
+  margin-top: 2em;
+  font-size: 8em;
+  background: #fff;
+}
+
+.box1 .btn_start{
+  display: inline-block;
+  position: absolute;
+  bottom:10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10rem 30rem;
+  background: #fff;
+  border: 2px solid palevioletred;
+  border-radius: 30rem;
+  font-size: 25rem;
+  font-weight: 600;
+}
+.box1 .btn_start a {
+  color: palevioletred;
+}
+.box1 .btn_start:hover{
+  background: rgb(223, 50, 107);
+}
+.box1 .btn_start:hover a {
+  color: #fff;
+}
+
+
+
+
+
+/* MAIN PAGE */
 .l-board{
   position: relative;
   width: 1280em;
