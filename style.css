@@ -91,9 +91,9 @@ html,body{
   border: 1px solid #fff;
 }
 .box1 h1 {
-  font-size: 40em;
-  font-weight: 1000;
-  margin: 1.5em;
+  font-size: 45em;
+  font-weight: bold;
+  margin: 1.2em;
   text-align: center;
 }
 .box1 h1 > span {
@@ -111,27 +111,38 @@ html,body{
 }
 .box1 .box2 .name-write {
   position: relative;
-  height: 60em;
+  height: 50em;
 }
 .box1 .box2 .name-write .input {
   position: absolute;
   left: 7%;
-  padding: 1em;
-  border: 2px solid palevioletred;
+  padding: 0 13rem;
+  font-size: 15rem;
+  width: 55%;
+  height: 100%;
+  border: 1px solid palevioletred;
 }
 .box1 .box2 .name-write .player-add {
   position: absolute;
   right: 7%;
-  padding: 1em 1.2em;
-  border: 2px solid palevioletred;
-  border-radius: 20px;
+  padding: 0 5rem;
+  font-size: 30rem;
+  width: 17%;
+  height: 100%;
+  border: 1px solid palevioletred;
+  border-radius: 25px;
   background: #fff;
   color: palevioletred;
+}
+.box1 .box2 .name-write .player-add:hover {
+  color: 1px solid #fff;
+  background: palevioletred;
 }
 
 .box1 .box2 .player-name {
   display: inline-block;
   position: relative;
+  top: 20em;
   height: 150em;
   left: 50%;
   transform: translateX(-50%);
@@ -141,7 +152,7 @@ html,body{
   text-align: center;
 }
 .box1 .box2 .player-name ul li {
-  font-size: 17em;
+  font-size: 17rem;
   margin-top: 1em;
 }
 .box1 .box2 .player-name .btn_reset {
@@ -167,10 +178,10 @@ html,body{
   background: #fff;
   border: 2px solid palevioletred;
   border-radius: 30rem;
+  font-size: 25rem;
+  font-weight: 600;
 }
 .box1 .btn_start a {
-  font-size: 1.5em;
-  font-weight: 600;
   color: palevioletred;
 }
 .box1 .btn_start:hover{
