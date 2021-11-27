@@ -135,7 +135,7 @@ html,body{
   color: palevioletred;
 }
 .box1 .box2 .name-write .player-add:hover {
-  color: 1px solid #fff;
+  color: #fff;
   background: palevioletred;
 }
 
