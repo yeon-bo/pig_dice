@@ -22,23 +22,23 @@ const playerScore = document.querySelector(".total-count");
 function addPlayer() {
   if (playerInput.value === "") {
     alert("플레이어 이름을 입력해주세요");
+  } else {
+    // input 태그 내의 플레이어명
+    playerName = playerInput.value;
+
+    // 플레이어 정보 객체
+    const playerinfo = { name: playerName, score: 0 };
+
+    //player_arr 배열에 플레이어 추가
+    player_arr.push(playerinfo);
+
+    const playerLi = document.createElement("li");
+    playerLi.append(playerName);
+    playerUl.append(playerLi);
+
+    // input 태그 리셋
+    playerInput.value = "";
   }
-
-  // input 태그 내의 플레이어명
-  playerName = playerInput.value;
-
-  // 플레이어 정보 객체
-  const playerinfo = { name: playerName, score: 0 };
-
-  //player_arr 배열에 플레이어 추가
-  player_arr.push(playerinfo);
-
-  const playerLi = document.createElement("li");
-  playerLi.append(playerName);
-  playerUl.append(playerLi);
-
-  // input 태그 리셋
-  playerInput.value = "";
 }
 
 playerAddBtn.addEventListener("click", addPlayer);
