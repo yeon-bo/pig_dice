@@ -3,99 +3,181 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 a {
   color: #000;
   text-decoration: none;
 }
-ol, ul {
-	list-style: none;
-}
-li{
+ol,
+ul {
   list-style: none;
 }
-blockquote, q {
-	quotes: none;
+li {
+  list-style: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* 반응형 size set */
-html,body{
+html,
+body {
   font-size: 0.0694vw;
 }
-@media screen and (min-width : 1440px){
-  html,body{
+@media screen and (min-width: 1440px) {
+  html,
+  body {
     font-size: 1px;
-  } 
+  }
 }
 
-
 /* layout */
-.l-wrap{
+.l-wrap {
   position: relative;
   width: 100%;
   min-height: 100vh;
 }
-.l-content{
+.l-content {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
-.l-layerpop{
+.l-layerpop {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background: rgba(0,0,0,1);
+  background: rgba(0, 0, 0, 1);
   z-index: 10;
   opacity: 1;
-  transition: opacity .5s , z-index .5s .1s;
+  transition: opacity 0.5s, z-index 0.5s 0.1s;
 }
-.l-layerpop.s-hidden{
+.l-layerpop.s-hidden {
   overflow: hidden;
-  opacity:0;
+  opacity: 0;
   z-index: -1;
 }
 
 /* INTRO PAGE */
-.intro-board{
+.intro-board {
   position: relative;
   width: 1280em;
   height: 600em;
@@ -105,7 +187,7 @@ html,body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-image: url('./background_pattern.jpg');
+  background-image: url("./background_pattern.jpg");
 }
 
 .box1 {
@@ -174,6 +256,8 @@ html,body{
   position: relative;
   top: 20em;
   height: 150em;
+  width: 300em;
+
   left: 50%;
   transform: translateX(-50%);
   overflow: auto;
@@ -192,16 +276,16 @@ html,body{
   transform: translateX(-50%);
   border: 1px solid #888;
   border-radius: 5px;
-  padding: .5em;
+  padding: 0.5em;
   margin-top: 2em;
   font-size: 8em;
   background: #fff;
 }
 
-.box1 .btn_start{
+.box1 .btn_start {
   display: inline-block;
   position: absolute;
-  bottom:10%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   padding: 10rem 30rem;
@@ -215,19 +299,15 @@ html,body{
 .box1 .btn_start a {
   color: palevioletred;
 }
-.box1 .btn_start:hover{
+.box1 .btn_start:hover {
   background: rgb(223, 50, 107);
 }
 .box1 .btn_start:hover a {
   color: #fff;
 }
 
-
-
-
-
 /* MAIN PAGE */
-.board-area{
+.board-area {
   position: relative;
   width: 1280em;
   min-height: 500em;
@@ -235,7 +315,7 @@ html,body{
   border: 2px solid palevioletred;
   border-radius: 20em;
 }
-.control-area{
+.control-area {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -243,7 +323,7 @@ html,body{
   font-size: 25em;
 }
 .btn-dice,
-.btn-hold{
+.btn-hold {
   display: inline-block;
   min-width: 8em;
   height: 2.8em;
@@ -252,59 +332,59 @@ html,body{
   border: 1px solid #000;
   border-radius: 2em;
 }
-.btn-dice{
+.btn-dice {
   cursor: pointer;
   background: #000;
   color: #fff;
 }
-.btn-dice:hover{
+.btn-dice:hover {
   background: rgb(223, 50, 107);
   border-color: #fff;
 }
-.btn-hold{
+.btn-hold {
   cursor: pointer;
   background: #fff;
   color: #000;
 }
-.btn-hold:hover{
+.btn-hold:hover {
   color: #fff;
   background: rgb(223, 50, 107);
   border-color: #fff;
 }
 
-.dice > span{
+.dice > span {
   display: block;
   text-align: center;
 }
-.dice-txt{
+.dice-txt {
   font-size: 1.2em;
 }
-.dice-num{
+.dice-num {
   margin-top: 20rem;
   padding: 20rem 30rem;
   font-size: 1.2em;
   border: 1px solid palevioletred;
   border-radius: 10rem;
 }
-.dice-num__txt{
+.dice-num__txt {
   display: block;
   text-align: center;
   margin-top: 10rem;
 }
-.player{
+.player {
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
+  justify-content: space-around;
   padding: 50em 50em;
 }
-.player-list{
+.player-list {
   position: relative;
   max-width: 10em;
   padding: 1em 0.6em 0.6em;
   font-size: 30em;
 }
-.player-list.active::after{
-  content:'';
+.player-list.active::after {
+  content: "";
   display: inline-block;
   position: absolute;
   top: -1em;
@@ -312,28 +392,28 @@ html,body{
   transform: translateX(-50%);
   width: 0.8em;
   height: 2.2em;
-  background: url('./arrow.gif') no-repeat center;
+  background: url("./arrow.gif") no-repeat center;
   background-size: 100% auto;
   filter: grayscale(100%);
 }
-.player-list img{
+.player-list img {
   display: block;
   width: 100%;
   margin: 0 auto;
-} 
-.player-name{
+}
+.player-name {
   display: block;
   margin-top: 1em;
   text-align: center;
   font-size: 0.88em;
 }
-.total-count{
+.total-count {
   display: block;
   margin-top: 3rem;
   font-size: 1em;
   text-align: center;
 }
-.totalcount span{
+.totalcount span {
   display: inline-block;
   padding-top: 10rem;
 }
