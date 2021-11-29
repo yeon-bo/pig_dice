@@ -11,6 +11,13 @@ const playerUl = document.querySelector(".player-name ul");
 const playerAddBtn = document.querySelector(".player-add");
 const playerResetBtn = document.querySelector(".btn_reset");
 
+// 플레이어 추가 영역
+const playerArea = document.querySelector(".player");
+
+// hidden 클래스 내
+const playerNick = document.querySelector(".player-name");
+const playerScore = document.querySelector(".total-count");
+
 // 플레이어 추가 함수
 function addPlayer() {
   if (playerInput.value === "") {
@@ -61,6 +68,31 @@ function shufflePlayer(array) {
   return array;
 }
 
+// DOM에 플레이어 추가하는 함수
+function createPlayer(arr) {
+  arr.forEach((obj, idx) => {
+    // hidden DOM 요소에 이름, 점수 추가
+    playerNick.innerHTML = obj.name;
+    playerScore.innerHTML = obj.score;
+
+    // hidden 요소 복제
+    const cloned = document
+      .querySelector(".player li:first-child")
+      .cloneNode(true);
+
+    // hidden  속성제거
+    cloned.classList.remove("hidden");
+
+    // 첫번째는 클래스에 active 추가
+    if (idx === 0) {
+      cloned.classList.add("active");
+      playerArea.append(cloned);
+    } else {
+      playerArea.append(cloned);
+    }
+  });
+}
+
 function pigdice() {
   const diceNum = document.querySelector("#diceNum");
   const totalNum = document.querySelector("#total");
@@ -89,5 +121,8 @@ btnStart.addEventListener("click", function () {
 
     // 플레이어 순서 재배치
     player_arr = shufflePlayer(player_arr);
+
+    // 재배치한 배열을 바탕으로 DOM에 플레이어 생성
+    createPlayer(player_arr);
   }
 });
