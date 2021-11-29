@@ -38,6 +38,9 @@ a {
 ol, ul {
 	list-style: none;
 }
+li{
+  list-style: none;
+}
 blockquote, q {
 	quotes: none;
 }
@@ -51,6 +54,7 @@ table {
 	border-spacing: 0;
 }
 
+/* 반응형 size set */
 html,body{
   font-size: 0.0694vw;
 }
@@ -61,8 +65,34 @@ html,body{
 }
 
 
-
-
+/* layout */
+.l-wrap{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+.l-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.l-layerpop{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0,0,0,1);
+  z-index: 10;
+  opacity: 1;
+  transition: opacity .5s , z-index .5s .1s;
+}
+.l-layerpop.s-hidden{
+  overflow: hidden;
+  opacity:0;
+  z-index: -1;
+}
 
 /* INTRO PAGE */
 .intro-board{
@@ -87,7 +117,7 @@ html,body{
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 100rem;
-  background: rgb(255, 255, 255, .8);
+  background: rgb(255, 255, 255, 1);
   border: 1px solid #fff;
 }
 .box1 h1 {
@@ -180,6 +210,7 @@ html,body{
   border-radius: 30rem;
   font-size: 25rem;
   font-weight: 600;
+  cursor: pointer;
 }
 .box1 .btn_start a {
   color: palevioletred;
@@ -196,76 +227,113 @@ html,body{
 
 
 /* MAIN PAGE */
-.l-board{
+.board-area{
   position: relative;
   width: 1280em;
-  height: 600em;
+  min-height: 500em;
   margin: 0 auto;
   border: 2px solid palevioletred;
   border-radius: 20em;
+}
+.control-area{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 100rem 0 0;
+  font-size: 25em;
+}
+.btn-dice,
+.btn-hold{
+  display: inline-block;
+  min-width: 8em;
+  height: 2.8em;
+  padding: 0 1.2em;
+  font-size: 1em;
+  border: 1px solid #000;
+  border-radius: 2em;
+}
+.btn-dice{
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+}
+.btn-dice:hover{
+  background: rgb(223, 50, 107);
+  border-color: #fff;
+}
+.btn-hold{
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+}
+.btn-hold:hover{
+  color: #fff;
+  background: rgb(223, 50, 107);
+  border-color: #fff;
+}
+
+.dice > span{
+  display: block;
+  text-align: center;
+}
+.dice-txt{
+  font-size: 1.2em;
+}
+.dice-num{
+  margin-top: 20rem;
+  padding: 20rem 30rem;
+  font-size: 1.2em;
+  border: 1px solid palevioletred;
+  border-radius: 10rem;
+}
+.dice-num__txt{
+  display: block;
+  text-align: center;
+  margin-top: 10rem;
+}
+.player{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:space-around;
+  padding: 50em 50em;
 }
-.l-player-area{
-  width: 500em;
-  padding: 100em 50em;
+.player-list{
+  position: relative;
+  max-width: 10em;
+  padding: 1em 0.6em 0.6em;
+  font-size: 30em;
 }
-.l-player-area img{
+.player-list.active::after{
+  content:'';
+  display: inline-block;
+  position: absolute;
+  top: -1em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.8em;
+  height: 2.2em;
+  background: url('./arrow.gif') no-repeat center;
+  background-size: 100% auto;
+  filter: grayscale(100%);
+}
+.player-list img{
   display: block;
-  width: 300em;
+  width: 100%;
   margin: 0 auto;
 } 
-.l-player-p1{
-
+.player-name{
+  display: block;
+  margin-top: 1em;
+  text-align: center;
+  font-size: 0.88em;
 }
-.totalcount{
-  margin-top: 80rem;
-  font-size: 30em;
+.total-count{
+  display: block;
+  margin-top: 3rem;
+  font-size: 1em;
   text-align: center;
 }
 .totalcount span{
   display: inline-block;
   padding-top: 10rem;
-}
-.dice{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 30em;
-}
-.dice_print{
-  display: block;
-  text-align: center;
-  padding: 20rem 30rem;
-  margin-top: 10rem;
-  border: 1px solid palevioletred;
-  border-radius: 10rem;
-}
-.btn_dice{
-  display: inline-block;
-  position: absolute;
-  top:20%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 15rem 30rem;
-  font-size: 25em;
-  background: #000;
-  color: #fff;
-  border: 1px solid #fff;
-  border-radius: 10rem;
-}
-.btn_hold{
-  display: inline-block;
-  position: absolute;
-  bottom:20%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 15rem 30rem;
-  font-size: 25em;
-  background: #fff;
-  color: #000;
-  border: 1px solid #000;
-  border-radius: 10rem;
 }
