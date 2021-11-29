@@ -10,8 +10,12 @@ const playerResetBtn = document.querySelector(".btn_reset");
 
 // 플레이어 추가 함수
 function addPlayer() {
+  if (playerInput.value === "") {
+    alert("플레이어 이름을 입력해주세요");
+  }
+
   // input 태그 내의 플레이어명
-  const playerName = playerInput.value;
+  playerName = playerInput.value;
 
   //player_arr 배열에 플레이어 추가
   player_arr.push(playerName);
@@ -53,8 +57,11 @@ function pigdice() {
 }
 
 btnStart.addEventListener("click", function () {
-  console.log("start");
-
-  // 게임시작 버튼 클릭 시 레이어팝업 닫힘
-  layerPop.classList.add("s-hidden");
+  if (player_arr.length < 2) {
+    alert("두 명 이상의 플레이어를 추가하세요 ");
+  } else {
+    console.log("start");
+    // 게임시작 버튼 클릭 시 레이어팝업 닫힘
+    layerPop.classList.add("s-hidden");
+  }
 });
