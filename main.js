@@ -1,4 +1,7 @@
 let total = 0;
+
+// 플레이어명과, 점수 객체로 구성된 플레이어 배열
+// format은 [{name: 보노보노, score:0}, {name: 포로리, score: 0}, {name: 너부리, score: 0}]
 let player_arr = [];
 
 const btnStart = document.querySelector(".btn_start");
@@ -17,8 +20,11 @@ function addPlayer() {
   // input 태그 내의 플레이어명
   playerName = playerInput.value;
 
+  // 플레이어 정보 객체
+  const playerinfo = { name: playerName, score: 0 };
+
   //player_arr 배열에 플레이어 추가
-  player_arr.push(playerName);
+  player_arr.push(playerinfo);
 
   const playerLi = document.createElement("li");
   playerLi.append(playerName);
