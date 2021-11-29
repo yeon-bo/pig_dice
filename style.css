@@ -176,6 +176,10 @@ body {
   z-index: -1;
 }
 
+.hidden {
+  display: none;
+}
+
 /* INTRO PAGE */
 .intro-board {
   position: relative;
