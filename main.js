@@ -38,6 +38,23 @@ function resetPlayer() {
 
 playerResetBtn.addEventListener("click", resetPlayer);
 
+// 플레이어 순서 mix 함수
+function shufflePlayer(array) {
+  let m = array.length,
+    t,
+    i;
+
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
+}
+
 function pigdice() {
   const diceNum = document.querySelector("#diceNum");
   const totalNum = document.querySelector("#total");
@@ -63,5 +80,8 @@ btnStart.addEventListener("click", function () {
     console.log("start");
     // 게임시작 버튼 클릭 시 레이어팝업 닫힘
     layerPop.classList.add("s-hidden");
+
+    // 플레이어 순서 재배치
+    player_arr = shufflePlayer(player_arr);
   }
 });
