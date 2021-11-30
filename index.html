@@ -1,100 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script defer src="./main.js"></script>
-  <link rel="stylesheet" href="./style.css">
-  <title>pig dice game</title>
-</head>
-<body>
-  <div class="l-wrap">
-    <div class="l-content">
-      <!-- main contents -->
-      <div class="board-area">
-        <!-- 게임 컨트롤 버튼 영역 -->
-        <div class="control-area">
-          <!-- 주사위 굴리기 버튼 -->
-          <!-- TODO : 랜덤으로 주사위 숫자를 뽑습니다. -->
-          <button class="btn-dice">주사위 굴리기</button>
-          <!--// 주사위 굴리기 버튼 -->
-  
-          <!-- 주사위 숫자 출력 -->
-          <!-- TODO : 주사위 굴리기 버튼을 누른 후 나온 숫자를 출력해주세요. -> .diceNum -->
-          <div class="dice"> 
-            <span class="dice-txt">주사위 숫자</span>
-            <span class="dice-num">?</span>
-          </div>
-          <!--// 주사위 숫자 출력 -->
-  
-          <!-- Hold 버튼 -->
-          <!-- TODO : hold 버튼을 누르면 점수를 저장하고 턴을 넘깁니다. -->
-          <button class="btn-hold">HOLD</button>
-          <!--// Hold 버튼 -->
-        </div>
-        <!--// 게임 컨트롤 버튼 영역 -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>pig dice game</title>
+  </head>
+  <body>
+    <div class="l-wrap">
+      <div class="l-content">
+        <!-- main contents -->
+        <div class="board-area">
+          <!-- 게임 컨트롤 버튼 영역 -->
+          <div class="control-area">
+            <!-- 주사위 굴리기 버튼 -->
+            <!-- TODO : 랜덤으로 주사위 숫자를 뽑습니다. -->
+            <button class="btn-dice">주사위 굴리기</button>
+            <!--// 주사위 굴리기 버튼 -->
 
-        <!-- 플레이어 셋팅 -->
-        <ul class="player">
-          <!-- TODO : player 갯수에 따라 li 생성 -> .player-list 
+            <!-- 주사위 숫자 출력 -->
+            <!-- TODO : 주사위 굴리기 버튼을 누른 후 나온 숫자를 출력해주세요. -> .diceNum -->
+            <div class="dice">
+              <span class="dice-txt">주사위 숫자</span>
+              <span class="dice-num">?</span>
+            </div>
+            <!--// 주사위 숫자 출력 -->
+
+            <!-- Hold 버튼 -->
+            <!-- TODO : hold 버튼을 누르면 점수를 저장하고 턴을 넘깁니다. -->
+            <button class="btn-hold">HOLD</button>
+            <!--// Hold 버튼 -->
+          </div>
+          <!--// 게임 컨트롤 버튼 영역 -->
+
+          <!-- 플레이어 셋팅 -->
+          <ul class="player">
+            <!-- TODO : player 갯수에 따라 li 생성 -> .player-list 
             .player-name : 플레이어 이름
             .total-count : 플레이어 점수
             .active : 게임 진행중인 li에 active 클래스를 추가해주세요. 현재 진행중인 플레이어 표시.
           -->
-          <li class="player-list active">
-            <img src="./per1.jpg" alt="player">
-            <span class="player-name">Player1</span>
-            <span class="total-count">0</span>
-          </li>
-          <li class="player-list">
-            <img src="./per1.jpg" alt="player">
-            <span class="player-name">Player2</span>
-            <span class="total-count">0</span>
-          </li>
-          <li class="player-list">
-            <img src="./per1.jpg" alt="player">
-            <span class="player-name">Player3</span>
-            <span class="total-count">0</span>
-          </li>
-          <li class="player-list">
-            <img src="./per1.jpg" alt="player">
-            <span class="player-name">Player4</span>
-            <span class="total-count">0</span>
-          </li>
-        </ul>
-        <!--// 플레이어 셋팅 -->
-      </div>
-    </div>
-    <!--// main contents -->
-
-    <!-- layer popup 사용자 셋팅 -->
-    <div class="l-layerpop">
-      <div class="l-layerpop__inner">
-        <div class="box1">
-          <h1><span>돼</span>지 <span>주</span>사위 <span>게</span>임</h1>
-          <div class="box2">
-            <form class="name-write">
-              <input class="input" type="text" placeholder="player name" name="player" autocomplete="off">
-              <button class="player-add" type="submit"><b>+</b></button>
-            </form>
-            <div class="player-name">
-              <ul>
-                <li>예시 목록입니다</li>
-                <li>작업시 지워주세요</li>
-                <li>예시 목록입니다</li>
-                <li>작업시 지워주세요</li>
-              </ul>
-              <button id="reset" class="btn_reset">RESET</button>
-            </div>
-          </div>
-          <!-- 211129 : a link 삭제 -->
-          <button class="btn_start">게임 시작</button>
+            <li class="player-list hidden">
+              <img src="./images/per1.jpg" alt="player" />
+              <span class="player-name">Player1</span>
+              <span class="total-count">0</span>
+            </li>
+          </ul>
+          <!--// 플레이어 셋팅 -->
         </div>
       </div>
-    </div>
-    <!--// layer popup 사용자 셋팅 -->
-  </div>
+      <!--// main contents -->
 
-</body>
+      <!-- layer popup 사용자 셋팅 -->
+      <div class="l-layerpop">
+        <div class="l-layerpop__inner">
+          <div class="box1">
+            <h1><span>돼</span>지 <span>주</span>사위 <span>게</span>임</h1>
+            <div class="box2">
+              <div class="name-write">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="player name"
+                  name="player"
+                  autocomplete="off"
+                />
+                <button class="player-add" type="submit"><b>+</b></button>
+              </div>
+              <div class="player-name">
+                <ul></ul>
+                <button id="reset" class="btn_reset">RESET</button>
+              </div>
+            </div>
+            <!-- 211129 : a link 삭제 -->
+            <button class="btn_start">게임 시작</button>
+          </div>
+        </div>
+      </div>
+      <!--// layer popup 사용자 셋팅 -->
+    </div>
+  </body>
 </html>
