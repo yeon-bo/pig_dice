@@ -10,6 +10,10 @@ const playerInput = document.querySelector(".input");
 const playerUl = document.querySelector(".player-name ul");
 const playerAddBtn = document.querySelector(".player-add");
 const playerResetBtn = document.querySelector(".btn_reset");
+// 변수 추가 (211130_kimham)
+const rollBtn = document.querySelector(".btn-dice");
+const holdBtn = document.querySelector(".btn-hold");
+const diceNumShow = document.querySelector(".dice-num");
 
 // 플레이어 추가 영역
 const playerArea = document.querySelector(".player");
@@ -29,8 +33,8 @@ function addPlayer() {
     // player 아이디 생성
     let id = player_arr.length + 1;
 
-    // 플레이어 정보 객체
-    const playerinfo = { name: playerName, score: 0, id: id };
+    // score -> totalScore & turnScore로 분할 : 게임 진행 시 turnScore를 저장할 메모리 필요. (211130_kimham)
+    const playerinfo = { name: playerName, totalScore: 0, turnScore: 0, id: id };
 
     //player_arr 배열에 플레이어 추가
     player_arr.push(playerinfo);
@@ -76,7 +80,7 @@ function createPlayer(arr) {
   arr.forEach((obj, idx) => {
     // hidden DOM 요소에 이름, 점수 추가
     playerNick.innerHTML = obj.name;
-    playerScore.innerHTML = obj.score;
+    playerScore.innerHTML = obj.totalScore; // obj.score -> obj.totalScore : 플레이어 정보 객체 수정사항 상속 (211130_kimham)
 
     // hidden 요소 복제
     const cloned = document
@@ -131,3 +135,30 @@ btnStart.addEventListener("click", function () {
     createPlayer(player_arr);
   }
 });
+
+// Play Game (211130_kimham)
+  // 턴 점수 
+  let turnScore;
+  let i = 0;
+  // 주사위 굴리기 함수
+  const rollDice = () => {
+    let diceNum = Math.floor(Math.random() * 6) + 1;
+    diceNumShow.textContent = diceNum;
+    return diceNum;
+  }
+  // 턴 진행 함수
+  const playTurn = (diceNum, player) => {
+    if(diceNum === 1){
+      player.turnScore = 0;
+      console.log(`1이 나와 턴 점수가 ${player.turnScore}점이 되었습니다. 다음 플레이어의 턴으로 넘어갑니다.`)
+      i ++;
+      if(i >= player_arr.length) i = 0;
+      holdBtn.disabled = true;
+    } 
+  }  
+
+  // 주사위 굴리기 버튼 클릭
+  rollBtn.addEventListener("click", () => {
+    rollDice();
+    playTurn(rollDice(), player_arr[i]);
+  })
