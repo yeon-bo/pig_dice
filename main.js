@@ -1,7 +1,7 @@
 let total = 0;
 
 // 플레이어명과, 점수 객체로 구성된 플레이어 배열
-// format은 [{name: 보노보노, score:0}, {name: 포로리, score: 0}, {name: 너부리, score: 0}]
+// format은 [{name: 보노보노, score:0, id : 1}, {name: 포로리, score: 0, id : 2}, {name: 너부리, score: 0, id : 3}]
 let player_arr = [];
 
 const btnStart = document.querySelector(".btn_start");
@@ -26,8 +26,11 @@ function addPlayer() {
     // input 태그 내의 플레이어명
     playerName = playerInput.value;
 
+    // player 아이디 생성
+    let id = player_arr.length + 1;
+
     // 플레이어 정보 객체
-    const playerinfo = { name: playerName, score: 0 };
+    const playerinfo = { name: playerName, score: 0, id: id };
 
     //player_arr 배열에 플레이어 추가
     player_arr.push(playerinfo);
@@ -86,8 +89,10 @@ function createPlayer(arr) {
     // 첫번째는 클래스에 active 추가
     if (idx === 0) {
       cloned.classList.add("active");
+      cloned.setAttribute("id", `${obj.id}`);
       playerArea.append(cloned);
     } else {
+      cloned.setAttribute("id", `${obj.id}`);
       playerArea.append(cloned);
     }
   });
