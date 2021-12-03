@@ -10,7 +10,6 @@ const playerInput = document.querySelector(".input");
 const playerUl = document.querySelector(".player-name ul");
 const playerAddBtn = document.querySelector(".player-add");
 const playerResetBtn = document.querySelector(".btn_reset");
-// 변수 추가 (211130_kimham)
 const rollBtn = document.querySelector(".btn-dice");
 const holdBtn = document.querySelector(".btn-hold");
 const diceNumShow = document.querySelector(".dice-num");
@@ -146,6 +145,28 @@ btnStart.addEventListener("click", function () {
     diceNumShow.textContent = diceNum;
     return diceNum;
   }
+  // 총 점수 기록 함수
+  const scoreRender = (player) => {
+    const turnPlayerScore = document.querySelector(".active > .total-count");
+    player.totalScore += player.turnScore;
+    player.turnScore = 0;
+    turnPlayerScore.textContent = player.totalScore;
+  }
+  // 현재 플레이어 표시 함수
+  const turnRender = () => {
+    const playerList = document.querySelector(".player");
+    const turnPlayer = document.querySelector(".active");
+    turnPlayer.classList.remove("active");
+    playerList.children[i+1].classList.add("active");
+  }
+  // holdBtn 이벤트리스너의 콜백함수
+  const holdBtnCallback = () => {
+    scoreRender(player_arr[i]);
+    i ++;
+    if(i >= player_arr.length) i = 0;
+    diceNumShow.textContent = 0;
+    turnRender();
+  }
   // 턴 진행 함수
   const playTurn = (diceNum, player) => {
     if(diceNum === 1){
@@ -153,12 +174,19 @@ btnStart.addEventListener("click", function () {
       console.log(`1이 나와 턴 점수가 ${player.turnScore}점이 되었습니다. 다음 플레이어의 턴으로 넘어갑니다.`)
       i ++;
       if(i >= player_arr.length) i = 0;
+      turnRender();
       holdBtn.disabled = true;
-    } 
-  }  
+    } else {
+      player.turnScore += diceNum;
+      console.log(`${player.name}의 이번 턴 점수는 ${player.turnScore}. 다시 던지시겠습니까?`)
+      holdBtn.disabled = false;
+    }
+  }
 
   // 주사위 굴리기 버튼 클릭
   rollBtn.addEventListener("click", () => {
     rollDice();
     playTurn(rollDice(), player_arr[i]);
+    holdBtn.addEventListener("click", holdBtnCallback, {once: true})
+
   })
