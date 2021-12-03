@@ -181,9 +181,11 @@ btnStart.addEventListener("click", function () {
   }
   // 턴 진행 함수
   const playTurn = (diceNum, player) => {
+    const turnPlayerScore = document.querySelector(".active > .total-count");
     if(diceNum === 1){
       player.turnScore = 0;
       console.log(`1이 나와 턴 점수가 ${player.turnScore}점이 되었습니다. 다음 플레이어의 턴으로 넘어갑니다.`)
+      turnPlayerScore.textContent = player.totalScore;
       i ++;
       if(i >= player_arr.length) i = 0;
       turnRender();
@@ -191,6 +193,7 @@ btnStart.addEventListener("click", function () {
     } else {
       player.turnScore += diceNum;
       console.log(`${player.name}의 이번 턴 점수는 ${player.turnScore}. 다시 던지시겠습니까?`)
+      turnPlayerScore.textContent = player.totalScore + player.turnScore;
       holdBtn.disabled = false;
     }
   }
