@@ -159,9 +159,21 @@ btnStart.addEventListener("click", function () {
     turnPlayer.classList.remove("active");
     playerList.children[i+1].classList.add("active");
   }
+  // 게임 종료 함수
+  const endGame = (player) => {
+    if(player.totalScore >= 100){
+      rollBtn.disabled = true;
+      setTimeout(function() {
+        alert(`${player.name}가 총 ${player.totalScore}점으로 승리하였습니다.`);
+      },0);
+      return true;
+    }
+    console.log(`${player.name}가 Stop하여 총 점수 ${player.totalScore}로 다음 플레이어의 턴으로 넘어갑니다.`)
+  }  
   // holdBtn 이벤트리스너의 콜백함수
   const holdBtnCallback = () => {
     scoreRender(player_arr[i]);
+    if(endGame(player_arr[i])) return;
     i ++;
     if(i >= player_arr.length) i = 0;
     diceNumShow.textContent = 0;
@@ -188,5 +200,4 @@ btnStart.addEventListener("click", function () {
     rollDice();
     playTurn(rollDice(), player_arr[i]);
     holdBtn.addEventListener("click", holdBtnCallback, {once: true})
-
   })
