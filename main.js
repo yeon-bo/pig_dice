@@ -10,6 +10,9 @@ const playerInput = document.querySelector(".input");
 const playerUl = document.querySelector(".player-name ul");
 const playerAddBtn = document.querySelector(".player-add");
 const playerResetBtn = document.querySelector(".btn_reset");
+const rollBtn = document.querySelector(".btn-dice");
+const holdBtn = document.querySelector(".btn-hold");
+const diceNumShow = document.querySelector(".dice-num");
 
 // 플레이어 추가 영역
 const playerArea = document.querySelector(".player");
@@ -29,8 +32,8 @@ function addPlayer() {
     // player 아이디 생성
     let id = player_arr.length + 1;
 
-    // 플레이어 정보 객체
-    const playerinfo = { name: playerName, score: 0, id: id };
+    // score -> totalScore & turnScore로 분할 : 게임 진행 시 turnScore를 저장할 메모리 필요. (211130_kimham)
+    const playerinfo = { name: playerName, totalScore: 0, turnScore: 0, id: id };
 
     //player_arr 배열에 플레이어 추가
     player_arr.push(playerinfo);
@@ -76,7 +79,7 @@ function createPlayer(arr) {
   arr.forEach((obj, idx) => {
     // hidden DOM 요소에 이름, 점수 추가
     playerNick.innerHTML = obj.name;
-    playerScore.innerHTML = obj.score;
+    playerScore.innerHTML = obj.totalScore; // obj.score -> obj.totalScore : 플레이어 정보 객체 수정사항 상속 (211130_kimham)
 
     // hidden 요소 복제
     const cloned = document
@@ -131,3 +134,73 @@ btnStart.addEventListener("click", function () {
     createPlayer(player_arr);
   }
 });
+
+// Play Game (211130_kimham)
+  // 턴 점수 
+  let turnScore;
+  let i = 0;
+  // 주사위 굴리기 함수
+  const rollDice = () => {
+    let diceNum = Math.floor(Math.random() * 6) + 1;
+    diceNumShow.textContent = diceNum;
+    return diceNum;
+  }
+  // 총 점수 기록 함수
+  const scoreRender = (player) => {
+    const turnPlayerScore = document.querySelector(".active > .total-count");
+    player.totalScore += player.turnScore;
+    player.turnScore = 0;
+    turnPlayerScore.textContent = player.totalScore;
+  }
+  // 현재 플레이어 표시 함수
+  const turnRender = () => {
+    const playerList = document.querySelector(".player");
+    const turnPlayer = document.querySelector(".active");
+    turnPlayer.classList.remove("active");
+    playerList.children[i+1].classList.add("active");
+  }
+  // 게임 종료 함수
+  const endGame = (player) => {
+    if(player.totalScore >= 100){
+      rollBtn.disabled = true;
+      setTimeout(function() {
+        alert(`${player.name}가 총 ${player.totalScore}점으로 승리하였습니다.`);
+      },0);
+      return true;
+    }
+    console.log(`${player.name}가 Stop하여 총 점수 ${player.totalScore}로 다음 플레이어의 턴으로 넘어갑니다.`)
+  }  
+  // holdBtn 이벤트리스너의 콜백함수
+  const holdBtnCallback = () => {
+    scoreRender(player_arr[i]);
+    if(endGame(player_arr[i])) return;
+    i ++;
+    if(i >= player_arr.length) i = 0;
+    diceNumShow.textContent = 0;
+    turnRender();
+  }
+  // 턴 진행 함수
+  const playTurn = (diceNum, player) => {
+    const turnPlayerScore = document.querySelector(".active > .total-count");
+    if(diceNum === 1){
+      player.turnScore = 0;
+      console.log(`1이 나와 턴 점수가 ${player.turnScore}점이 되었습니다. 다음 플레이어의 턴으로 넘어갑니다.`)
+      turnPlayerScore.textContent = player.totalScore;
+      i ++;
+      if(i >= player_arr.length) i = 0;
+      turnRender();
+      holdBtn.disabled = true;
+    } else {
+      player.turnScore += diceNum;
+      console.log(`${player.name}의 이번 턴 점수는 ${player.turnScore}. 다시 던지시겠습니까?`)
+      turnPlayerScore.textContent = player.totalScore + player.turnScore;
+      holdBtn.disabled = false;
+    }
+  }
+
+  // 주사위 굴리기 버튼 클릭
+  rollBtn.addEventListener("click", () => {
+    rollDice();
+    playTurn(rollDice(), player_arr[i]);
+    holdBtn.addEventListener("click", holdBtnCallback, {once: true})
+  })
