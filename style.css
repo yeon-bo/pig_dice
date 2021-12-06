@@ -165,7 +165,7 @@ body {
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background: rgba(0, 0, 0, 1);
+  background-image: url("./images/background_pattern.jpg");
   z-index: 10;
   opacity: 1;
   transition: opacity 0.5s, z-index 0.5s 0.1s;
@@ -181,7 +181,7 @@ body {
 }
 
 /* INTRO PAGE */
-.intro-board {
+/* .intro-board {
   position: relative;
   width: 1280em;
   height: 600em;
@@ -192,7 +192,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   background-image: url("./images/background_pattern.jpg");
-}
+} */
 
 .box1 {
   position: absolute;
@@ -203,7 +203,7 @@ body {
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 100rem;
-  background: rgb(255, 255, 255, 1);
+  background: rgb(255, 255, 255, .9);
   border: 1px solid #fff;
 }
 .box1 h1 {
@@ -299,14 +299,10 @@ body {
   font-size: 25rem;
   font-weight: 600;
   cursor: pointer;
-}
-.box1 .btn_start a {
   color: palevioletred;
 }
 .box1 .btn_start:hover {
   background: rgb(223, 50, 107);
-}
-.box1 .btn_start:hover a {
   color: #fff;
 }
 
